@@ -21,6 +21,7 @@ pip install ultralytics
 ```python
 from picamera2 import Picamera2, Preview
 import numpy as np
+import cv2
 from ultralytics import YOLO
 
 model = YOLO('yolov8n.pt')
@@ -34,5 +35,6 @@ while True:
   request.release()
   result = model.predict('test.jpg')
   annotated_frame = result[0].plot()
-  cv2.imshow('YOLO Tracking', annotated_frame)
+  cv2.imshow('YOLO Detection', annotated_frame)
+  cv2.waitKey(5000)
 ```
